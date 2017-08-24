@@ -1,0 +1,10 @@
+{% extends "layout.html" %} 
+{% block body %}
+<h1>Items</h1>
+<ul class="list-group">
+
+    {% for item in items %}
+    <li class="list-group-item"><a href="item/{{item.id}}">{{ item.item }}</a> &nbsp; <small>Click to see price</small></li>
+    {% endfor %}
+</ul>
+{% endblock %}

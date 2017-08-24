@@ -1,0 +1,11 @@
+{% extends "layout.html" %} 
+{% block body %}
+
+<h1>{{ item.item}}</h1>
+<small>Updated by {{item.author}} on {{item.create_date}}</small>
+<hr>
+<div>
+    <h2>${{item.price | safe}}</h2><br>
+    <a href="/items"><small>Back to items</small>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "layout.html" %} 
+{% block body %}
+
+<img src="http://images.freeimages.com/images/large-previews/adf/sun-burst-1478549.jpg" width="128" height="128" />
+
+<h3>Here is my shopping list</h3>
+<ol>
+    {% for item in food %}
+    <li>{{ item }}</li>
+
+    {% endfor %}
+</ol>
+{% endblock %}

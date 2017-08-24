@@ -1,0 +1,32 @@
+{% extends "layout.html" %} 
+{% block body %}
+<h1>Dashboard <small>Wecome {{session.username}}</small></h1>
+<a class="btn btn-success" href="/add_item">Add Item</a>
+<hr>
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Items</th>
+        <th>Author</th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for item in items %}
+    <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.item }}</td>
+        <td>{{ item.author }}</td>
+        <td>{{ item.create_date }}</td>
+        <td><a href="edit_item/{{item.id}}" class="btn btn-default pull-right">Edit</a></td>
+        <td>
+            <form action="{{url_for('delete_item', id=item.id)}}" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="submit" value="Delete" class="btn btn-danger">
+        </td>
+        </form>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
